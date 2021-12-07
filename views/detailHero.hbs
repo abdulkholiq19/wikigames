@@ -1,0 +1,40 @@
+{{> header}}
+{{> navbar}}
+
+<div class="content-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center mt-5 mb-5">
+        <h2 class="title-heading">Detail Hero {{heroes.name}}</h2>
+      </div>
+			<div class="artis_card pt-4 pb-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+                <div class="set-img-detail d-flex justify-content-center">
+                  <img src="{{heroes.photo}}" alt="Artis" class="img-detail-hero">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="detail-head font-weight-bold">{{heroes.name}}</h2>
+                {{#each filterType}}
+                <h4 class="detail-head font-weight-bold">Type : {{this.name}}</h4>
+                {{/each}}
+            </div>
+            <div class="col-md-1">
+              <div class="text-end mb-2">
+                <a href="/edit-hero/{{heroes.id}}" class="btn-edit ">
+                  <button type="button" class="btn btn-warning mb-3">Edit</button>
+                </a>
+                <a href="/delete-hero/{{heroes.id}}" class="btn-delete">
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

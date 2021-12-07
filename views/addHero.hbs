@@ -1,0 +1,59 @@
+{{> header}}
+{{> navbar}}
+
+
+<div class="content-body pt-5 pb-5">
+  <div class="container h-100 pt-5 pb-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="artis_card">
+				<form action="/add-hero" method="post" enctype="multipart/form-data">
+					<div class="justify-content-center p-3">
+						<h2 class="title-text pb-2">Add Hero</h2>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="mb-3">
+									<div class="card w-100" id="img-preview" >
+										<img class="card-img-top" src="https://www.teralogistics.com/wp-content/uploads/2020/12/default.png" alt="Card image cap">
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="image" class="form-label">Image :</label>
+									<input type="file" name="image" class="form-control input_user" id="file" onchange="handleChange()">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="mb-3">
+									<label for="name" class="form-label">Name :</label>
+									<input type="text" name="name" class="form-control input_user">
+								</div>
+								<div class="mb-3">
+									<label for="type_id" class="form-label">Type Id :</label>
+									<select class="form-control" name="type_id" onchange="getSelectValue()">
+										<option value=""></option>
+										{{#each typeHero}}
+										<option value="{{this.id}}">{{this.name}}</option>
+										{{/each}}
+									</select>
+								</div>
+								<div class="d-flex justify-content-end mt-3 login_container">
+									<button type="submit" name="button" class="btn submit_add">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function handleChange() {
+		let previewElement = document.getElementById('img-preview')
+		const value = URL.createObjectURL(event.target.files[0])
+		previewElement.innerHTML = `<img src="${value}" class="card-img-top h-25 img-cover"/>`
+	}
+	function getSelectValue() {
+		var selectedValue = document.getElementById('type_id').value
+		console.log('val :', selectedValue);
+	}
+</script>

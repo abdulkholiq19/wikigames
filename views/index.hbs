@@ -1,0 +1,28 @@
+{{> header}}
+{{> navbar}}
+
+
+<div class="container text-center">
+  <h3>7DW Heroes</h3>
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+</div>
+<div class="container">
+  <div class="row">
+    {{#each heroes}}
+    <div class="col-sm-3 mt-3 text-center">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" style="min-height: 180px !important;object-fit: cover;" src="{{this.photo}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title mb-3">{{this.name}}</h5>
+          <h5 class="card-title mb-3">{{this.id}}</h5>
+          <a href="/hero/{{this.id}}" class="btn btn-primary">Detail</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<div class="container text-center">
+  <h3>7DW Type</h3>
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+</div>
